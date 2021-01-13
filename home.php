@@ -17,6 +17,15 @@
 </head>
 <body >
     <link rel="stylesheet" href="index.css">
+    <nav>
+        <ul>
+            <li><a href="home.php">Home</a></li>
+             <li><a href="#">Sports</a></li>
+              <li><a href="#/">Edit Profile</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="regalto.php">Sign out</a></li>
+        </ul>
+    </nav>
     <img src="flag1.jpg" id="img2" >
     <div id="img3">
         <ul>
@@ -41,7 +50,7 @@
             <li>CR7</li>
             <li>Messi</li>
             <li>Youssef</li>
-            <li>hamda</li>>
+            <li>hamda</li>
         </ul>
     </div>
 </body>
