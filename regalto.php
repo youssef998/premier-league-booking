@@ -32,5 +32,6 @@
                 <p>Create an account! <a href="/signup">Sign Up </a></p>
         </form>
    </div>
+   <?php include_once('viewMatches.php'); ?> 
 </body>
 </html>

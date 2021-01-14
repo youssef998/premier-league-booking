@@ -22,8 +22,9 @@
 $user=$_POST["username"]; 
 ?>
             
-            
+       
     <link rel="stylesheet" href="index.css">
+    <!--
     <nav>
         <ul>
             <li><a><?php echo $user;?></a></li>
@@ -36,6 +37,9 @@ $user=$_POST["username"];
               <li><a href="siteadmin.php">Site Admin</a></li>
         </ul>
     </nav>
-    <img src="flag1.jpg" id="img2" >
+    -->
+    <?php include_once('navbar.php'); ?> 
+    <?php include_once('viewMatches.php'); ?>    
+    <!--<img src="flag1.jpg" id="img2" >-->
 </body>
 </html>
