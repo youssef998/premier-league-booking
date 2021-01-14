@@ -13,15 +13,7 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" >
         <script src=http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js> </script>
         <script type="text/javascript"  src="scripts/signin.js">
-        function validateForm(){
-            var first= document.forms["myForm"]["username"].value;
-            var last= document.forms["myForm"]["password"].value;
-            if(first=="" || last=="" )
-            {
-                alert("All fields must be filled out");
-                return false;
-            }
-        }
+        
 </script>
 </head>
 <body >

@@ -3,8 +3,7 @@ function onSubmit() {
     var data = 
         {
             "username": document.getElementById('myuser').value,
-            "password": document.getElementById('mypassword').value
-            
+            "password": document.getElementById('mypassword').value       
         }
     if (valid) {
         $.ajax({
@@ -21,4 +20,14 @@ function onSubmit() {
         });
     }
     return valid;
+}
+
+function validateForm(){
+    var first= document.forms["myForm"]["username"].value;
+    var last= document.forms["myForm"]["password"].value;
+    if(first=="" || last=="" )
+    {
+        alert("All fields must be filled out");
+        return false;
+    }
 }
