@@ -94,11 +94,11 @@ function loadMatchesDetails()
         url:'http://localhost:8080/matches',
         success: function(result){
             console.log(result);
-            for(var i =0; i < result.length;i++)
+            matches = result.matches
+            for(var i =0; i < matches.length;i++)
             {
-                addMatch(JSON.parse(result[i]));
+                addMatch(matches[i]);
             }
-            return match;
         },
         error: function(xhr, status, error){
             var errorMessage = xhr.status + ': ' + xhr.statusText
