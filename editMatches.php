@@ -22,7 +22,7 @@
         ?>
         <script>
              $( document ).ready(function() {
-                setEditFormValues();
+                loadEditFormValues();
             });
         </script>
         

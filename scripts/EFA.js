@@ -1,4 +1,3 @@
-//const { get } = require("jquery");
 
 function validateEditForm() {
     var hometeam = document.getElementById('edit_hometeam').value;
@@ -20,54 +19,21 @@ function validateForm() {
         return false;
     }
     return true;
-    /*
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", 'https://api.randomservice.com/dog', false);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.send(JSON.stringify(
-    {
-        name: 'Roger'
-    }));
-    */
-    // TODO ADD THE POST REQUEST AND ALERT IF OK
-    //  const axios = require('axios');
-    /*
-        axios.post('https://api.randomservice.com/dog',
-        {
-            name: 'Roger',
-            age: 8
-            
-        },
-        {
-            headers:
-            {
-                'content-type': 'application/json',
-                //authorization: 'Bearer 123abc456def'
-            }
-        }).then((res) => 
-        {
-            console.log(" ana hena ya salama",res)
-        }).catch((error) => {
-            console.error(error)
-            valid = false;
-        });
-    */
-    return true;
 }
 function onSubmit() {
     var valid = validateForm();
     var data = 
-    {
-        "homeTeam": document.getElementById('f_hometeam').value,
-        "awayTeam": document.getElementById('f_awayteam').value,
-        "stadium": document.getElementById('f_stadium').value,
-        "dateTime": document.getElementById('f_matchdate').value,
-        "referee": document.getElementById('f_refree').value,
-        "linesman1": document.getElementById('f_linesman_one').value,
-        "linesman2": document.getElementById('f_linesman_two').value
-    }
+        {
+            "homeTeam": document.getElementById('f_hometeam').value,
+            "awayTeam": document.getElementById('f_awayteam').value,
+            "stadium": document.getElementById('f_stadium').value,
+            "dateTime": document.getElementById('f_matchdate').value,
+            "referee": document.getElementById('f_refree').value,
+            "linesman1": document.getElementById('f_linesman_one').value,
+            "linesman2": document.getElementById('f_linesman_two').value
+        }
 
-    console.log(data)
+    console.log(data);
     if (valid) {
         $.ajax({
             type:'POST',
@@ -110,7 +76,6 @@ function addMatch(match) {
         "<td>"+match.referee+"</td>" +
         "<td>"+match.linesman1+"</td>" +
         "<td>"+match.linesman2+"</td>" +
-        '<td><button name="details_delete_button" id="del_'+match.id+'">Delete</button></td>' +
         "</tr>");
 }
 function gotoedit(id)
@@ -121,48 +86,90 @@ function gotoedit(id)
     // similar behavior as clicking on a link
     window.location.href = "/premier-league-booking/editMatches.php?id="+id;
 }
-function simulateAddingMatches()
+function loadMatchesDetails()
 {
-    // GET REQUEST 
-    match = {
-        id: "elid",
-        homeTeam: "Ahly",
-        awayTeam: "Zamalek",
-        stadium: "Cairo Stadium",
-        dateTime: "2018-03-29T11:34:00",
-        referee: "Mostafa Sherif",
-        linesman1: "Karim Ibrahim",
-        linesman2: "Youssef Sayed"
-    };
-    addMatch(match);
+    // GET REQUEST
+    $.ajax({
+        type:'GET',
+        url:'http://localhost:8080/matches',
+        success: function(result){
+            console.log(result);
+            var matches = JSON.parse(result);
+            for(var i =0; i < matches.length;i++)
+            {
+                addMatch(matches[i]);
+            }
+            /*
+            match = {
+                id: "elid",
+                homeTeam: "0",
+                awayTeam: "0",
+                stadium: "1",
+                dateTime: "2018-03-29T11:34:00",
+                referee: "Mostafa Sherif",
+                linesman1: "Karim Ibrahim",
+                linesman2: "Youssef Sayed"
+            };
+            */
+            return match;
+        },
+        error: function(xhr, status, error){
+            var errorMessage = xhr.status + ': ' + xhr.statusText
+            alert('Error - ' + errorMessage);
+            
+        }
+    });
 }
 
 function getMatch(id)
 {
-    match = {
-        id: "elid",
-        homeTeam: "0",
-        awayTeam: "0",
-        stadium: "1",
-        dateTime: "2018-03-29T11:34:00",
-        referee: "Mostafa Sherif",
-        linesman1: "Karim Ibrahim",
-        linesman2: "Youssef Sayed"
-    };
-    return match;
+    console.log(data);
+    $.ajax({
+        type:'GET',
+        url:'http://localhost:8080/match?id='+id,
+        success: function(result){
+            console.log(result);
+            var match = JSON.parse(result);
+            /*
+            match = {
+                id: "elid",
+                homeTeam: "0",
+                awayTeam: "0",
+                stadium: "1",
+                dateTime: "2018-03-29T11:34:00",
+                referee: "Mostafa Sherif",
+                linesman1: "Karim Ibrahim",
+                linesman2: "Youssef Sayed"
+            };
+            */
+            return match;
+        },
+        error: function(xhr, status, error){
+            var errorMessage = xhr.status + ': ' + xhr.statusText
+            alert('Error - ' + errorMessage);
+            
+        }
+    });
+    return null;
 }
-function setEditFormValues()
+function loadEditFormValues()
 {
     id= getIdFromURL();
     match = getMatch(id);
-    console.log("match:",match.homeTeam);
-    document.getElementById('edit_hometeam').value = match.homeTeam;
-    document.getElementById('edit_awayteam').value = match.awayTeam;
-    document.getElementById('edit_stadium').value = match.stadium;
-    document.getElementById('edit_matchdate').value = match.dateTime;
-    document.getElementById('edit_refree').value = match.referee;
-    document.getElementById('edit_linesman_one').value = match.linesman1;
-    document.getElementById('edit_linesman_two').value = match.linesman2;
+    if (match !=null)
+    {
+        console.log("match:",match.homeTeam);
+        document.getElementById('edit_hometeam').value = match.homeTeam;
+        document.getElementById('edit_awayteam').value = match.awayTeam;
+        document.getElementById('edit_stadium').value = match.stadium;
+        document.getElementById('edit_matchdate').value = match.dateTime;
+        document.getElementById('edit_refree').value = match.referee;
+        document.getElementById('edit_linesman_one').value = match.linesman1;
+        document.getElementById('edit_linesman_two').value = match.linesman2;
+    }
+    else{
+        alert('Returned Match with this id is null.');
+    }
 }
 function getIdFromURL()
 {
@@ -179,10 +186,23 @@ function addStadium()
     var stadium = {
         name : name,
         rows : rows,
-        seats : seats
+        spr : seats
     };
-
-    alert('stadium added be ezn el ra7man');
+    $.ajax({
+        type:'POST',
+        data: stadium,
+        url:'http://localhost:8080/stadium',
+        success: function(result){
+            console.log(result);
+            return true;
+        },
+        error: function(xhr, status, error){
+            var errorMessage = xhr.status + ': ' + xhr.statusText
+            alert('Error - ' + errorMessage);
+            
+        }
+    });
+    return false;
 }
 function editMatch()
 {
@@ -190,20 +210,36 @@ function editMatch()
     id = getIdFromURL();
     console.log(id);
     var valid = validateEditForm();
-    if (valid) {
-        console.log(JSON.stringify(
-            {
-                "homeTeam": "Ahly",
-                "awayTeam": "Zamalek",
-                "stadium": "Cairo Stadium",
-                "dateTime": "2018-03-29T11:34:00",
-                "referee": "Mostafa Sherif",
-                "linesman1": "Karim Ibrahim",
-                "linesman2": "Youssef Sayed"
-            }
-        ));
+    var hometeam = document.getElementById('edit_hometeam').value;
+    var awayteam = document.getElementById('edit_awayteam').value;
+    var stadium =  document.getElementById('edit_stadium').value = match.stadium;
+    var datetime = document.getElementById('edit_matchdate').value = match.dateTime;
+    var referee = document.getElementById('edit_refree').value = match.referee;
+    var linesman1 = document.getElementById('edit_linesman_one').value = match.linesman1;
+    var linesman2 =document.getElementById('edit_linesman_two').value = match.linesman2;
+    match = {
+        "homeTeam": hometeam,
+        "awayTeam": awayteam,
+        "stadium": stadium,
+        "dateTime": datetime,
+        "referee": referee,
+        "linesman1": linesman1,
+        "linesman2": linesman2
     }
-    ///window.location.href = "/premier-league-booking/EFA.php";
+    if (valid) {
+        $.ajax({
+            type:'PUT',
+            data: match,
+            url:'http://localhost:8080/match?id='+id,
+            success: function(result){
+                console.log(result);
+            },
+            error: function(xhr, status, error){
+                var errorMessage = xhr.status + ': ' + xhr.statusText
+                alert('Error - ' + errorMessage);
+            }
+        });
+    }
     return valid;
 
 }

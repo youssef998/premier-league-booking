@@ -18,7 +18,7 @@
         <script type="text/javascript" src="scripts/require.js"></script>
         <script>
             $( document ).ready(function() {
-                simulateAddingMatches(); 
+                loadMatchesDetails(); 
             });
         </script>
         <?php 
@@ -138,7 +138,6 @@
                                 <th>Referee</th>
                                 <th>First Linesman</th>
                                 <th>Second Lines Man</th>
-                                <th>Delete</th>
                             </tr>
                         </thead>
                     </table>

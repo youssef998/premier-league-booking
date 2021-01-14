@@ -17,10 +17,10 @@
         <script type="text/javascript" src="scripts/siteadmin.js"></script>
         <script type="text/javascript" src="scripts/require.js"></script>
         <script>
-            $(document).ready(function() {
-                loadPendingUsers(); 
-                loadCurrentUsers();
-            });
+        $(document).ready(function() {
+            loadPendingUsers(); 
+            loadCurrentUsers();
+        });
         </script>
 
 

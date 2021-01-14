@@ -14,7 +14,7 @@ nav div{
     margin-top: 10px;
     margin-left: 10px;
     color: white;
-    font-size: 28px;
+    font-size: 24px;
     padding: 7px 13px;
     border-radius: 3px;
     text-transform: uppercase;
