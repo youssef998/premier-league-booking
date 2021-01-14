@@ -13,8 +13,14 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" >
         <script src=http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js> </script>
         <script type="text/javascript">
-            function validateForm(){
-            
+             function validateForm(){
+            var first= document.forms["myForm"]["username"].value;
+            var last= document.forms["myForm"]["password"].value;
+            if(first=="" || last=="" )
+            {
+                alert("All fields must be filled out");
+                return false;
+            }
         }
 </script>
 </head>
@@ -25,8 +31,8 @@
     <img src="user.png" id="img1">
         <h1>Sign In</h1>
         <form name="myForm" action="home.php" onsubmit=" return validateForm()" method="post">
-            <input type="text" class="input-box" placeholder="Username">
-            <input type="password" class="input-box" placeholder="Password">
+           <input type="text" class="input-box" placeholder="Username" name="username">
+            <input type="password" class="input-box" placeholder="Password" name="password">
             <p><span> <input type="checkbox"> </span>I agree to the terms and conditions</p>
             <button type="submit" class="signin-btn" >Sign in</button>
             <hr>

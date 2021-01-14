@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+
+
 <html lang="en">
 <head>
     <title>Home</title>
@@ -16,42 +18,22 @@
     </script>
 </head>
 <body >
+<?php
+$user=$_POST["username"]; 
+?>
+            
+            
     <link rel="stylesheet" href="index.css">
     <nav>
         <ul>
+            <li><a><?php echo $user;?></a></li>
             <li><a href="home.php">Home</a></li>
              <li><a href="#">Sports</a></li>
-              <li><a href="#/">Edit Profile</a></li>
+              <li><a href="editprof.php">Edit Profile</a></li>
               <li><a href="about.html">About</a></li>
               <li><a href="regalto.php">Sign out</a></li>
         </ul>
     </nav>
     <img src="flag1.jpg" id="img2" >
-    <div id="img3">
-        <ul>
-            <li>Ahmed Hassan</li>
-            <li>Abo treka</li>
-            <li>Amr el solaya</li>
-            <li>Bekham</li>
-            <li>CR7</li>
-            <li>Messi</li>
-            <li>Youssef</li>
-            <li>hamda</li>
-        </ul>
-    </div>
-        
-    <img src="flag1.jpg" id="img4">
-    <div id="img5">
-        <ul>
-            <li>Ahmed Hassan</li>
-            <li>Abo treka</li>
-            <li>Amr el solaya</li>
-            <li>Bekham</li>
-            <li>CR7</li>
-            <li>Messi</li>
-            <li>Youssef</li>
-            <li>hamda</li>
-        </ul>
-    </div>
 </body>
 </html>
