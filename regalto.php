@@ -12,8 +12,8 @@
 
     <link rel="stylesheet" type="text/css" href="css/index.css" >
         <script src=http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js> </script>
-        <script type="text/javascript">
-             function validateForm(){
+        <script type="text/javascript"  src="scripts/signin.js">
+        function validateForm(){
             var first= document.forms["myForm"]["username"].value;
             var last= document.forms["myForm"]["password"].value;
             if(first=="" || last=="" )
@@ -25,14 +25,14 @@
 </script>
 </head>
 <body >
-    <title>Zebby Page</title>
+    <title>Page</title>
     <link rel="stylesheet" href="index.css">
    <div class="sign-in-form">
     <img src="user.png" id="img1">
         <h1>Sign In</h1>
-        <form name="myForm" action="home.php" onsubmit=" return validateForm()" method="post">
-           <input type="text" class="input-box" placeholder="Username" name="username">
-            <input type="password" class="input-box" placeholder="Password" name="password">
+        <form name="myForm" action="home.php" onsubmit=" return onSubmit()" method="post">
+           <input type="text" class="input-box" placeholder="Username" name="username" id="myuser">
+            <input type="password" class="input-box" placeholder="Password" name="password" id="mypassword">
             <p><span> <input type="checkbox"> </span>I agree to the terms and conditions</p>
             <button type="submit" class="signin-btn" >Sign in</button>
             <hr>

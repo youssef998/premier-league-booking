@@ -25,17 +25,17 @@
                     <h4 class="text-right">Profile Settings</h4>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-md-6"><input type="text" class="form-control" placeholder="First Name" value=""></div>
-                    <div class="col-md-6"><input type="text" class="form-control" value="" placeholder="Last Name"></div>
+                    <div class="col-md-6"><input type="text" class="form-control" placeholder="First Name" id="first" required></div>
+                    <div class="col-md-6"><input type="text" class="form-control" value="" placeholder="Last Name" id="last" required></div>
                 </div>
                 <div class="row mt-3">               
-                    <div class="col-md-12"><input type="text" class="form-control" placeholder="Email" value=""></div>
+                    <div class="col-md-12"><input type="text" class="form-control" placeholder="Email" id="mail" required></div>
                 </div>
                 <div class="row mt-3"> 
-                    <div class="col-md-12"><input type="text" class="form-control" placeholder="Address" value=""></div>
+                    <div class="col-md-12"><input type="text" class="form-control" placeholder="Address" id="address"></div>
                 </div>
                 <div class="row mt-3">               
-                    <div class="col-md-12"><input type="text" class="form-control" placeholder="Password" value=""></div>
+                    <div class="col-md-12"><input type="text" class="form-control" placeholder="Password" id="password"required></div>
                    </div>
                    <div class="row mt-3">  
                     <div class="col-md-12"><input type="text" class="form-control" placeholder="Confirm Password" value=""></div>
