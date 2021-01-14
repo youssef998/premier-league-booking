@@ -12,11 +12,10 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
        
         <link rel="stylesheet" type="text/css" href="EFA.css">
-        <link rel="stylesheet" type="text/css" href="css/index.css" >
         <script src=http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js> </script>
         
-        <script type="text/javascript" src="EFA.js"></script>
-
+        <script type="text/javascript" src="scripts/EFA.js"></script>
+        <script type="text/javascript" src="scripts/require.js"></script>
         <?php 
         $teams = array("Zamalek", "Ahly", "Asyout");
         $stadiums = array("El saft", "borg el 3arab", "peramedz");

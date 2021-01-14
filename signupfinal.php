@@ -49,18 +49,19 @@
 
 
 var AM = require('./modules/signup-manager');
-module.exports = function(app) {
+module.exports = function(app) 
+{
 
-/*
-    login & logout
-*/
+    /*
+        login & logout
+    */
 
     app.get('/', function(req, res){
-    // check if the user has an auto login key saved in a cookie //
+        // check if the user has an auto login key saved in a cookie //
         if (req.cookies.login == undefined){
             res.render('login', { title: 'Hello - Please Login To Your Account' });
         }   else{
-    // attempt automatic login //
+        // attempt automatic login //
             AM.validateLoginKey(req.cookies.login, req.ip, function(e, o){
                 if (o){
                     AM.autoLogin(o.user, o.pass, function(o){
@@ -104,20 +105,24 @@ app.get('/signup', function(req, res) {
         res.render('signup', {  title: 'Signup' });
     });
     
-    app.post('/signup', function(req, res){
-        AM.addNewAccount({
-            name    : req.body['name'],
-            email   : req.body['email'],
-            user    : req.body['user'],
-            pass    : req.body['pass'],
-        }, function(e){
-            if (e){
-                res.status(400).send(e);
-            }   else{
-                res.status(200).send('ok');
-            }
-        });
-    
+    app.post('/signup', function(req, res)
+    {
+        AM.addNewAccount(
+            {
+                name    : req.body['name'],
+                email   : req.body['email'],
+                user    : req.body['user'],
+                pass    : req.body['pass'],
+            }, function(e)
+            {
+                if (e)
+                {
+                    res.status(400).send(e);
+                }   else
+                {
+                    res.status(200).send('ok');
+                }});
+    }
     app.get('*', function(req, res) { res.render('404', { title: 'Page Not Found'}); });
 };
 </script>

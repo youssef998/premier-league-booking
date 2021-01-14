@@ -7,38 +7,41 @@ function validateForm() {
         displayError('awayTeamError', "Please choose two different teams");
         return false;
     }
+    // TODO ADD THE POST REQUEST AND ALERT IF OK
+    //  const axios = require('axios');
+
     return true;
 }
 function onSubmit() {
     var valid = validateForm();
     if (valid) {
-        // TODO ADD THE POST REQUEST AND ALERT IF OK
-        const axios = require('axios');
-
-        axios.post('https://api.randomservice.com/dog',
+        define(function (require) {
+            var axios = require('name');
+      
+            axios.post('https://api.randomservice.com/dog',
             {
                 "homeTeam": "Ahly",
                 "awayTeam": "Zamalek",
-                "stadium": "Borg El arab Stadium",
+                "stadium": "Cairo Stadium",
                 "dateTime": "2018-03-29T11:34:00.000Z",
                 "referee": "Mostafa Sherif",
                 "linesman1": "Karim Ibrahim",
-                "linesman2": "Youssef Sayed",
-
+                "linesman2": "Youssef Sayed"
             },
             {
                 headers:
                 {
                     'content-type': 'application/json',
-                    authorization: 'Bearer 123abc456def'
+                    //authorization: 'Bearer 123abc456def'
                 }
-            }).then((res) => {
-                console.log(res.data)
+            }).then((res) => 
+            {
+                console.log(" ana hena ya salama",res)
             }).catch((error) => {
                 console.error(error)
+                valid = false;
             })
-
-
+        });
     }
     return valid;
 }
