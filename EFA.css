@@ -3,36 +3,45 @@
     padding: 5px 14px;
     width: 70%; 
     height: fit-content;
-    outline-style: solid;
-    background-color: azure;
+    background-color: indianred;
+    border-style: solid;
+    border-radius: 25px;
 }
 .AddStadiumContainer{
     margin: 2% 5%;
     padding: 5px 40px;
     height: fit-content;
-    outline-style: solid;
+    outline-style: none;
+    border-style: solid;
     background-color: beige;
+    border-radius: 25px;
 }
 .CreateMatchContainer{
     margin: 2% 5%;
     padding: 5px 40px;
     height: fit-content;
-    outline-style: solid;
+    outline-style: none;
+    border-style: solid;
     background-color: beige;
+    border-radius: 25px;
 }
 .EditMatchContainer{
     margin: 2% 5%;
     padding: 5px 40px;
     height: fit-content;
-    outline-style: solid;
+    outline-style: none;
+    border-style: solid;
     background-color: beige;
+    border-radius: 25px;
 }
 .MatchDetailsContainer{
     margin: 2% 5%;
     padding: 5px 40px;
     height: fit-content;
-    outline-style: solid;
+    outline-style: none;
+    border-style: solid;
     background-color: beige;
+    border-radius: 25px;
 }
 label {
     display: inline-block;
@@ -54,5 +63,5 @@ option {
     width: 220px;
 }
 .errorMessage{
-    color: red;
+    color: maroon;
 }

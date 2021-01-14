@@ -56,20 +56,31 @@ function validateForm() {
 }
 function onSubmit() {
     var valid = validateForm();
-    if (valid) {
-        console.log(JSON.stringify(
-            {
-                "homeTeam": "Ahly",
-                "awayTeam": "Zamalek",
-                "stadium": "Cairo Stadium",
-                "dateTime": "2018-03-29T11:34:00",
-                ///2021-01-11T10:11
+    var data = JSON.stringify(
+        {
+            "homeTeam": document.getElementById('f_hometeam').value,
+            "awayTeam": document.getElementById('f_awayteam').value,
+            "stadium": document.getElementById('f_stadium').value,
+            "dateTime": document.getElementById('f_matchdate').value,
+            "referee": document.getElementById('f_refree').value,
+            "linesman1": document.getElementById('f_linesman_one').value,
+            "linesman2": document.getElementById('f_linesman_two').value
+        }
+    )
 
-                "referee": "Mostafa Sherif",
-                "linesman1": "Karim Ibrahim",
-                "linesman2": "Youssef Sayed"
+    if (valid) {
+        $.ajax({
+            type:'POST',
+            data: data,
+            url:'localhost:8080/match',
+            success: function(result){
+                console.log(result);
+            },
+            error: function(xhr, status, error){
+                var errorMessage = xhr.status + ': ' + xhr.statusText
+                alert('Error - ' + errorMessage);
             }
-        ));
+        });
     }
     return valid;
 }

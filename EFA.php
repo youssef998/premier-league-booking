@@ -63,11 +63,11 @@
                 </div>
                 <div >
                     <label >Stadiums:</label>
-                    <select name="Stadium" class="selectpicker show-menu-arrow">
+                    <select name="Stadium" id='f_stadium' class="selectpicker show-menu-arrow">
                         <?php
                             for($x=0; $x<count($stadiums); $x++)
                             {
-                                echo "<option id='f_stadium' value=".$x." selected>".$stadiums[$x]."</option>";
+                                echo "<option  value=".$x." selected>".$stadiums[$x]."</option>";
                             }
                         ?>
                     </select>
@@ -92,7 +92,7 @@
                     <button name="createButton" id="f_button" type="submit" value="Submit" >Create</button>
                 </div>
             </form>
-        <form class="AddStadiumContainer" onsubmit = "return addStadium()" style ="margin: 2% 5%;padding: 5px 40px; height: fit-content; outline-style: solid; background-color: beige;"> <!--style ="margin: 2% 5%;padding: 5px 40px; height: fit-content; outline-style: solid; background-color: beige;"-->
+        <form class="AddStadiumContainer" onsubmit = "return addStadium()" > <!--style ="margin: 2% 5%;padding: 5px 40px; height: fit-content; outline-style: solid; background-color: beige;"-->
             <div class="row">
                 <div class="col-sm-6">
                     <h2>Add Stadium</h2>
