@@ -81,6 +81,7 @@ function onSubmit() {
                 alert('Error - ' + errorMessage);
             }
         });
+    }
     return valid;
 }
 function displayError(id, errorMessage) {
