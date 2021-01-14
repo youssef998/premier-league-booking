@@ -70,8 +70,8 @@ function addMatch(match) {
         $("#MatchesTable").append("<tbody></tbody>");
     }
     // Append product to the table
-    $("#MatchesTable tbody").append("<tr id='tr_"+match.id+"'>" +
-        '<td><button name="details_edit_button" id="edit_'+match.id+'" onclick="gotoedit(\''+match.id+'\')">Edit</button></td>' +
+    $("#MatchesTable tbody").append('<tr id="'+match.id+'">' +
+        '<td><button class="details_edit_button" id="edit_'+match.id+'" >Edit</button></td>' +
         "<td>"+teams[match.homeTeam]+"</td>" +
         "<td>"+teams[match.awayTeam]+"</td>" +
         "<td>"+stadiums[match.stadium]+"</td>" +
@@ -81,6 +81,11 @@ function addMatch(match) {
         "<td>"+match.linesman2+"</td>" +
         "</tr>");
 }
+
+$('.details_edit_button').onclick(function(){
+    var trid = $(this).closest('tr').attr('id');
+    gotoedit(trid);
+});
 function gotoedit(id)
 {
     // console.log(id);
@@ -113,7 +118,7 @@ function loadMatchesDetails()
 
 function getMatch(id)
 {
-    console.log(data);
+    console.log(id);
     $.ajax({
         type:'GET',
         url:'http://localhost:8080/match?id='+id,
@@ -133,6 +138,7 @@ function getMatch(id)
 function loadEditFormValues()
 {
     id= getIdFromURL();
+    console('match id from url',id);
     match = getMatch(id);
     if (match !=null)
     {
