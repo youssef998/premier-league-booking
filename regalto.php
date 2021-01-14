@@ -29,7 +29,7 @@
             <button type="submit" class="signin-btn" >Sign in</button>
             <hr>
                 <p class="or">OR</p>
-                <p>Create an account! <a href="/signup">Sign Up </a></p>
+                <p>Create an account! <a href="signupfinal.php">Sign Up </a></p>
         </form>
    </div>
    <?php include_once('viewMatches.php'); ?> 
