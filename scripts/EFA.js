@@ -56,23 +56,23 @@ function validateForm() {
 }
 function onSubmit() {
     var valid = validateForm();
-    var data = JSON.stringify(
-        {
-            "homeTeam": document.getElementById('f_hometeam').value,
-            "awayTeam": document.getElementById('f_awayteam').value,
-            "stadium": document.getElementById('f_stadium').value,
-            "dateTime": document.getElementById('f_matchdate').value,
-            "referee": document.getElementById('f_refree').value,
-            "linesman1": document.getElementById('f_linesman_one').value,
-            "linesman2": document.getElementById('f_linesman_two').value
-        }
-    )
+    var data = 
+    {
+        "homeTeam": document.getElementById('f_hometeam').value,
+        "awayTeam": document.getElementById('f_awayteam').value,
+        "stadium": document.getElementById('f_stadium').value,
+        "dateTime": document.getElementById('f_matchdate').value,
+        "referee": document.getElementById('f_refree').value,
+        "linesman1": document.getElementById('f_linesman_one').value,
+        "linesman2": document.getElementById('f_linesman_two').value
+    }
 
+    console.log(data)
     if (valid) {
         $.ajax({
             type:'POST',
             data: data,
-            url:'localhost:8080/match',
+            url:'http://localhost:8080/match',
             success: function(result){
                 console.log(result);
             },
@@ -81,7 +81,6 @@ function onSubmit() {
                 alert('Error - ' + errorMessage);
             }
         });
-    }
     return valid;
 }
 function displayError(id, errorMessage) {

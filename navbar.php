@@ -19,9 +19,6 @@ nav div{
     border-radius: 3px;
     text-transform: uppercase;
     display: inline-block;
-    
-    font:indianred;
-    
     border-style: solid;
     background-color: indianred;
     border-radius: 25px;
