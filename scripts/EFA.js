@@ -160,6 +160,19 @@ function getIdFromURL()
     console.log("myParam:",id);
     return id;
 }
+function addStadium()
+{
+    var name = document.getElementById('stadium_name').value;
+    var rows = document.getElementById('stadium_rows').value;
+    var seats = document.getElementById('stadium_rows_seats').value;
+    var stadium = {
+        name : name,
+        rows : rows,
+        seats : seats
+    };
+
+    alert('stadium added be ezn el ra7man');
+}
 function editMatch()
 {
     //double check m3 tifa the id type

@@ -32,67 +32,93 @@
     <body>
         <?php include_once('navbar.php'); ?>
         <div class="efacontainer">
-        <form method="POST"  action="" class="CreateMatchContainer" onsubmit="return onSubmit()">		
-            <div class="row">
-                <div class="col-sm-6">
-                    <h2>Create Match</h2>
+            <form method="POST"  action="" class="CreateMatchContainer" onsubmit="return onSubmit()">		
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h2>Create Match</h2>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <label >Home Team:</label>
-                <?php
-                    echo"<select id='f_hometeam' name='HomeTeam' class='selectpicker show-menu-arrow'>";
-                    for($x=0; $x <count($teams); $x++)
-                    {
-                        echo "<option value=".$x." selected>".$teams[$x]."</option>";
-                    }
-                    echo"</select>";
-                ?>
-            </div>
-            <div>
-                <label >Away Team:</label>
-                <select id='f_awayteam' name="AwayTeam">
+                <div>
+                    <label >Home Team:</label>
                     <?php
-                        for($x=count($teams)-1; $x>=0; $x--)
+                        echo"<select id='f_hometeam' name='HomeTeam' class='selectpicker show-menu-arrow'>";
+                        for($x=0; $x <count($teams); $x++)
                         {
                             echo "<option value=".$x." selected>".$teams[$x]."</option>";
                         }
+                        echo"</select>";
                     ?>
-                </select>
-                <span id="awayTeamError" class ="errorMessage"></span>
+                </div>
+                <div>
+                    <label >Away Team:</label>
+                    <select id='f_awayteam' name="AwayTeam">
+                        <?php
+                            for($x=count($teams)-1; $x>=0; $x--)
+                            {
+                                echo "<option value=".$x." selected>".$teams[$x]."</option>";
+                            }
+                        ?>
+                    </select>
+                    <span id="awayTeamError" class ="errorMessage"></span>
+                </div>
+                <div >
+                    <label >Stadiums:</label>
+                    <select name="Stadium" class="selectpicker show-menu-arrow">
+                        <?php
+                            for($x=0; $x<count($stadiums); $x++)
+                            {
+                                echo "<option id='f_stadium' value=".$x." selected>".$stadiums[$x]."</option>";
+                            }
+                        ?>
+                    </select>
+                </div>
+                <div >  
+                    <label>Match Date:</label>
+                    <input name="matchDate" id="f_matchdate" type="datetime-local" required/>
+                </div>
+                <div >  
+                    <label>Referee:</label>
+                    <input name="referee" id="f_refree" type="text" required/>
+                </div>
+                <div >  
+                    <label>First Linesman:</label>
+                    <input name="first_lineman" id="f_linesman_one" type="text" required/>
+                </div>
+                <div >  
+                    <label>Second Linesman:</label>
+                    <input name="second_lineman" id="f_linesman_two" type="text" required/>
+                </div>
+                <div>
+                    <button name="createButton" id="f_button" type="submit" value="Submit" >Create</button>
+                </div>
+            </form>
+        <form class="AddStadiumContainer" onsubmit = "return addStadium()" style ="margin: 2% 5%;padding: 5px 40px; height: fit-content; outline-style: solid; background-color: beige;"> <!--style ="margin: 2% 5%;padding: 5px 40px; height: fit-content; outline-style: solid; background-color: beige;"-->
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2>Add Stadium</h2>
+                </div>
             </div>
-            <div >
-                <label >Stadiums:</label>
-                <select name="Stadium" class="selectpicker show-menu-arrow">
-                    <?php
-                        for($x=0; $x<count($stadiums); $x++)
-                        {
-                            echo "<option id='f_stadium' value=".$x." selected>".$stadiums[$x]."</option>";
-                        }
-                    ?>
-                 </select>
+            <div class="row">
+                <div class="col-sm-6">
+                    
+                        <div >  
+                            <label>Stadium Name:</label>
+                            <input name="stadium_name" id="stadium_name" type="text" required/>
+                        </div>
+                        <div >  
+                            <label>Number of Rows:</label>
+                            <input type="number" id="stadium_rows" name="rows" min="10" max="100" required/>
+                        </div>
+                        <div >  
+                            <label>Number of Seats/Row:</label>
+                            <input type="number" id="stadium_rows_seats" name="seatsperrow" min="1" max="100" required/>
+                        </div>
+                        <div>
+                            <button name="addStadiumButton" id="f_button" type="submit" value="Submit" >Add Stadium</button>
+                        </div>
+                </div>
             </div>
-            <div >  
-                <label>Match Date:</label>
-                <input name="matchDate" id="f_matchdate" type="datetime-local" required/>
-            </div>
-            <div >  
-                <label>Referee:</label>
-                <input name="referee" id="f_refree" type="text" required/>
-            </div>
-            <div >  
-                <label>First Linesman:</label>
-                <input name="first_lineman" id="f_linesman_one" type="text" required/>
-            </div>
-            <div >  
-                <label>Second Linesman:</label>
-                <input name="second_lineman" id="f_linesman_two" type="text" required/>
-            </div>
-            <div>
-                <button name="createButton" id="f_button" type="submit" value="Submit" >Create</button>
-            </div>
-        </form>
-        <div>
+        </form> 
         <div class="MatchDetailsContainer">
             <div class="row">
                 <div class="col-sm-6">
@@ -119,6 +145,8 @@
                 </div>
             </div>
         </div>
+        
+        <div>
         
         <!--
         <table>

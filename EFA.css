@@ -6,6 +6,13 @@
     outline-style: solid;
     background-color: azure;
 }
+.AddStadiumContainer{
+    margin: 2% 5%;
+    padding: 5px 40px;
+    height: fit-content;
+    outline-style: solid;
+    background-color: beige;
+}
 .CreateMatchContainer{
     margin: 2% 5%;
     padding: 5px 40px;
