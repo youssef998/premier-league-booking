@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" type="text/css" href="css/index.css" >
     <script src=http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js> </script>
-    <script type="text/javascript">
+    <script type="text/javascript" href="Editprof.js">
     </script>
 </head>
 <body >
@@ -27,9 +27,9 @@
                 <div class="row mt-2">
                     <div class="col-md-6"><input type="text" class="form-control" placeholder="First Name" id="first" required></div>
                     <div class="col-md-6"><input type="text" class="form-control" value="" placeholder="Last Name" id="last" required></div>
-                </div>
+                </div>mail
                 <div class="row mt-3">               
-                    <div class="col-md-12"><input type="text" class="form-control" placeholder="Email" id="mail" required></div>
+                    <div class="col-md-12"><input type="text" class="form-control" placeholder="Email" id="" required></div>
                 </div>
                 <div class="row mt-3"> 
                     <div class="col-md-12"><input type="text" class="form-control" placeholder="Address" id="address"></div>
