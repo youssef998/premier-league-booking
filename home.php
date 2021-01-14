@@ -33,6 +33,7 @@ $user=$_POST["username"];
               <li><a href="about.html">About</a></li>
               <li><a href="regalto.php">Sign out</a></li>
               <li><a href="Efa.php">EFA</a></li>
+              <li><a href="siteadmin.php">Site Admin</a></li>
         </ul>
     </nav>
     <img src="flag1.jpg" id="img2" >
