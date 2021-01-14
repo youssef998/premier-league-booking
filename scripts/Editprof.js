@@ -1,13 +1,13 @@
-function getMatch(id)
+function getUser(id)
 {
     console.log(data);
     $.ajax({
         type:'GET',
-        url:'http://localhost:8080/getuser',
+        url:'http://localhost:8080/user',
         success: function(result){
             console.log(result);
-            var match = result;
-            return match;
+            var user = result;
+            return user;
         },
         error: function(xhr, status, error){
             var errorMessage = xhr.status + ': ' + xhr.statusText
@@ -21,8 +21,8 @@ function loadEditFormValues()
 {
     user=getUser();
     console.log("User is:",user.username);
-    document.getElementById('first').value = user.first;
-    document.getElementById('last').value = user.last;
+    document.getElementById('first').value = user.firstName;
+    document.getElementById('last').value = user.lastName;
     document.getElementById('mail').value = user.email;
-    document.getElementById('address').value = user.address;
+    document.getElementById('address').value = user.city;
 }
