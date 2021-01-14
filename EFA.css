@@ -13,6 +13,13 @@
     outline-style: solid;
     background-color: beige;
 }
+.EditMatchContainer{
+    margin: 2% 5%;
+    padding: 5px 40px;
+    height: fit-content;
+    outline-style: solid;
+    background-color: beige;
+}
 .MatchDetailsContainer{
     margin: 2% 5%;
     padding: 5px 40px;

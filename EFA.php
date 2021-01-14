@@ -16,6 +16,11 @@
         
         <script type="text/javascript" src="scripts/EFA.js"></script>
         <script type="text/javascript" src="scripts/require.js"></script>
+        <script>
+            $( document ).ready(function() {
+                simulateAddingMatches(); 
+            });
+        </script>
         <?php 
         $teams = array("Zamalek", "Ahly", "Asyout");
         $stadiums = array("El saft", "borg el 3arab", "peramedz");
@@ -91,7 +96,7 @@
         <div class="MatchDetailsContainer">
             <div class="row">
                 <div class="col-sm-6">
-                    <h2>List Products</h2>
+                    <h2>Matches Details</h2>
                 </div>
             </div>
             <div class="row">
@@ -114,6 +119,7 @@
                 </div>
             </div>
         </div>
+        
         <!--
         <table>
             <tr>
