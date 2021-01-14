@@ -23,7 +23,7 @@ function loadEditFormValues()
     console.log("User is:",user.username);
     document.getElementById('first').value = user.firstName;
     document.getElementById('last').value = user.lastName;
-    document.getElementById('mail').value = user.email;
+    document.getElementById('email').value = user.email;
     document.getElementById('address').value = user.city;
 }
 function getIdFromURL()

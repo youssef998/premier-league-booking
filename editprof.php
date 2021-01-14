@@ -29,7 +29,7 @@
                     <div class="col-md-6"><input type="text" class="form-control" value="" placeholder="Last Name" id="last" required></div>
                 </div>mail
                 <div class="row mt-3">               
-                    <div class="col-md-12"><input type="text" class="form-control" placeholder="Email" id="" required></div>
+                    <div class="col-md-12"><input type="text" class="form-control" placeholder="Email" id="email" required></div>
                 </div>
                 <div class="row mt-3"> 
                     <div class="col-md-12"><input type="text" class="form-control" placeholder="Address" id="address"></div>
