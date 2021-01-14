@@ -15,6 +15,14 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" >
     <script src=http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js> </script>
     <script type="text/javascript">
+
+
+    </script>
+    <script type="text/javascript" src="scripts/viewmatches.js"></script>
+    <script>
+        $(document).ready(function() {
+            loadGeneralMatchesDetails(); 
+        });
     </script>
 </head>
 <body >

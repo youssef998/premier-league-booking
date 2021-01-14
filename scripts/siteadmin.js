@@ -1,32 +1,43 @@
 function loadPendingUsers()
 {
-    user = {
-        username:"aaa",
-        firstName:"a",
-        lastName:"b",
-        role:"manyook",
-        email:"ass@ass.com",
-        city:"giza",
-        gender:"+",
-        birthDate:"1997-07-15",
-        password:"aaaaaaaa"
-    };
-    addUser(user);
+    $.ajax({
+        type:'GET',
+        url:'http://localhost:8080/pusers',
+        success: function(result){
+            console.log(result);
+            users = result.users
+            for(var i =0; i < users.length;i++)
+            {
+                addUser(users[i]);
+            }
+        },
+        error: function(xhr, status, error){
+            var errorMessage = xhr.status + ': ' + xhr.statusText
+            alert('Error - ' + errorMessage);
+            
+        }
+    });
 }
 function loadCurrentUsers()
 {
-    user = {
-        username:"aaa",
-        firstName:"a",
-        lastName:"b",
-        role:"manyook",
-        email:"ass@ass.com",
-        city:"giza",
-        gender:"+",
-        birthDate:"1997-07-15",
-        password:"aaaaaaaa"
-    };
-    addCurrentUser(user);
+    $.ajax({
+        type:'GET',
+        url:'http://localhost:8080/users',
+        success: function(result){
+            console.log(result);
+            users = result.users
+            for(var i =0; i < users.length;i++)
+            {
+                addCurrentUser(users[i]);
+            }
+        },
+        error: function(xhr, status, error){
+            var errorMessage = xhr.status + ': ' + xhr.statusText
+            alert('Error - ' + errorMessage);
+            
+        }
+    });
+
 }
 function addUser(user)
 {
@@ -107,6 +118,20 @@ function rejectUser(id)
 }
 function deleteCurrentUser(id)
 {
+    $.ajax({
+        type:'DELETE',
+        data : {
+            id : id
+        },
+        url:'http://localhost:8080/user',
+        success: function(result){
+            console.log(result);
+        },
+        error: function(xhr, status, error){
+            var errorMessage = xhr.status + ': ' + xhr.statusText
+            alert('Error - ' + errorMessage);
+        }
+    });
     location.reload();
     alert('deleted id:', id);
 }

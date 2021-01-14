@@ -33,12 +33,12 @@
             <div class="matchesdetailsgeneralcontainer">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h2>Pending Users Details</h2>
+                        <h2>Matches Details</h2>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-6">
-                        <table id="usersTable" class="table table-bordered table-condensed table-striped">
+                        <table id="GeneralMatchesTable" class="table table-bordered table-condensed table-striped">
                             <thead>
                                 <tr>
                                     <th>Home Team</th>
