@@ -1,14 +1,25 @@
+//const { get } = require("jquery");
+
+function validateEditForm() {
+    var hometeam = document.getElementById('edit_hometeam').value;
+    var awayteam = document.getElementById('edit_awayteam').value;
+    //alert("ehdaa yabaa");
+    if (hometeam == awayteam) {
+        displayError('edit_awayTeamError', "Please choose two different teams");
+        return false;
+    }
+    return true;
+}
+
 function validateForm() {
     var hometeam = document.getElementById('f_hometeam').value;
     var awayteam = document.getElementById('f_awayteam').value;
-    // console.log(hometeam);
-    // console.log(awayteam);
-    console.log(document.getElementById('f_matchdate').value);
-    alert("ehdaa yabaa");
+    //alert("ehdaa yabaa");
     if (hometeam == awayteam) {
         displayError('awayTeamError', "Please choose two different teams");
         return false;
     }
+    return true;
     /*
     var xhr = new XMLHttpRequest();
     xhr.open("POST", 'https://api.randomservice.com/dog', false);
@@ -51,7 +62,9 @@ function onSubmit() {
                 "homeTeam": "Ahly",
                 "awayTeam": "Zamalek",
                 "stadium": "Cairo Stadium",
-                "dateTime": "2018-03-29T11:34:00.000Z",
+                "dateTime": "2018-03-29T11:34:00",
+                ///2021-01-11T10:11
+
                 "referee": "Mostafa Sherif",
                 "linesman1": "Karim Ibrahim",
                 "linesman2": "Youssef Sayed"
@@ -68,7 +81,6 @@ function clearError(id) {
 }
 function clearAllErrors() {
     clearError("awayTeamError");
-    clearError("homeTeamError");
     return true;
 }
 
@@ -106,7 +118,7 @@ function simulateAddingMatches()
         homeTeam: "Ahly",
         awayTeam: "Zamalek",
         stadium: "Cairo Stadium",
-        dateTime: "2018-03-29T11:34:00.000Z",
+        dateTime: "2018-03-29T11:34:00",
         referee: "Mostafa Sherif",
         linesman1: "Karim Ibrahim",
         linesman2: "Youssef Sayed"
@@ -121,19 +133,17 @@ function getMatch(id)
         homeTeam: "0",
         awayTeam: "0",
         stadium: "1",
-        dateTime: "2018-03-29T11:34:00.000Z",
+        dateTime: "2018-03-29T11:34:00",
         referee: "Mostafa Sherif",
         linesman1: "Karim Ibrahim",
         linesman2: "Youssef Sayed"
     };
     return match;
 }
-function getIdFromURL()
+function setEditFormValues()
 {
-    const urlParams = new URLSearchParams(window.location.search);
-    const myParam = urlParams.get('id');
-    console.log("myParam:",myParam);
-    match = getMatch(myParam);
+    id= getIdFromURL();
+    match = getMatch(id);
     console.log("match:",match.homeTeam);
     document.getElementById('edit_hometeam').value = match.homeTeam;
     document.getElementById('edit_awayteam').value = match.awayTeam;
@@ -142,10 +152,34 @@ function getIdFromURL()
     document.getElementById('edit_refree').value = match.referee;
     document.getElementById('edit_linesman_one').value = match.linesman1;
     document.getElementById('edit_linesman_two').value = match.linesman2;
-    editMatch(id);
 }
-function editMatch(id)
+function getIdFromURL()
+{
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id');
+    console.log("myParam:",id);
+    return id;
+}
+function editMatch()
 {
     //double check m3 tifa the id type
+    id = getIdFromURL();
+    console.log(id);
+    var valid = validateEditForm();
+    if (valid) {
+        console.log(JSON.stringify(
+            {
+                "homeTeam": "Ahly",
+                "awayTeam": "Zamalek",
+                "stadium": "Cairo Stadium",
+                "dateTime": "2018-03-29T11:34:00",
+                "referee": "Mostafa Sherif",
+                "linesman1": "Karim Ibrahim",
+                "linesman2": "Youssef Sayed"
+            }
+        ));
+    }
+    ///window.location.href = "/premier-league-booking/EFA.php";
+    return valid;
 
 }

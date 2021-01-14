@@ -22,7 +22,7 @@
         ?>
         <script>
              $( document ).ready(function() {
-                getIdFromURL();
+                setEditFormValues();
             });
         </script>
         
@@ -32,7 +32,7 @@
     <body>
         <?php include_once('navbar.php'); ?>
         <div class="efacontainer">
-            <form method='PUT' class='EditMatchContainer' onsubmit='return onEdit()'>		
+            <form method='PUT' action="EFA.php" class='EditMatchContainer' onsubmit='return editMatch()'>		
             <div class='row'>
                 <div class='col-sm-6'>
                     <h2>Edit Match</h2>
@@ -61,7 +61,7 @@
                         }
                     ?>
                 </select>
-                <span id="awayTeamError" class ="errorMessage"></span>
+                <span id="edit_awayTeamError" class ="errorMessage"></span>
             </div>
             <div >
                 <label >Stadiums:</label>
@@ -91,7 +91,7 @@
                 <input name="second_lineman" id="edit_linesman_two" type="text" required/>
             </div>
             <div>
-                <button name="createButton" id="edit_button" type="submit" value="Submit" >Edit</button>
+                <button name="editbutton" id="edit_button" type="submit" value="Submit" >Edit</button>
             </div>
         </form>    
             </div>
