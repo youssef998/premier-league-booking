@@ -1,4 +1,7 @@
 
+
+teams = ["Zamalek", "Ahly", "Asyout"];
+stadiums = ["El saft", "borg el 3arab", "peramedz"];
 function validateEditForm() {
     var hometeam = document.getElementById('edit_hometeam').value;
     var awayteam = document.getElementById('edit_awayteam').value;
@@ -69,9 +72,9 @@ function addMatch(match) {
     // Append product to the table
     $("#MatchesTable tbody").append("<tr id='tr_"+match.id+"'>" +
         '<td><button name="details_edit_button" id="edit_'+match.id+'" onclick="gotoedit(\''+match.id+'\')">Edit</button></td>' +
-        "<td>"+match.homeTeam+"</td>" +
-        "<td>"+match.awayTeam+"</td>" +
-        "<td>"+match.stadium+"</td>" +
+        "<td>"+teams[match.homeTeam]+"</td>" +
+        "<td>"+teams[match.awayTeam]+"</td>" +
+        "<td>"+stadiums[match.stadium]+"</td>" +
         "<td>"+match.dateTime+"</td>" +
         "<td>"+match.referee+"</td>" +
         "<td>"+match.linesman1+"</td>" +
@@ -116,19 +119,7 @@ function getMatch(id)
         url:'http://localhost:8080/match?id='+id,
         success: function(result){
             console.log(result);
-            var match = JSON.parse(result);
-            /*
-            match = {
-                id: "elid",
-                homeTeam: "0",
-                awayTeam: "0",
-                stadium: "1",
-                dateTime: "2018-03-29T11:34:00",
-                referee: "Mostafa Sherif",
-                linesman1: "Karim Ibrahim",
-                linesman2: "Youssef Sayed"
-            };
-            */
+            var match = result;
             return match;
         },
         error: function(xhr, status, error){
