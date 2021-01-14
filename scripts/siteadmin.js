@@ -69,12 +69,39 @@ function addCurrentUser(user)
 }
 function approveUser(id)
 {
+    $.ajax({
+        type:'POST',
+        data : {
+            id : id
+        },
+        url:'http://localhost:8080/approve',
+        success: function(result){
+            console.log(result);
+        },
+        error: function(xhr, status, error){
+            var errorMessage = xhr.status + ': ' + xhr.statusText
+            alert('Error - ' + errorMessage);
+        }
+    });
     location.reload();
-    // send a request to approve user
     alert('approved id:', id);
 }
 function rejectUser(id)
 {
+    $.ajax({
+        type:'POST',
+        data : {
+            id : id
+        },
+        url:'http://localhost:8080/decline',
+        success: function(result){
+            console.log(result);
+        },
+        error: function(xhr, status, error){
+            var errorMessage = xhr.status + ': ' + xhr.statusText
+            alert('Error - ' + errorMessage);
+        }
+    });
     location.reload();
     alert('rejected id:', id);
 }
