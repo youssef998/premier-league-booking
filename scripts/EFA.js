@@ -94,23 +94,10 @@ function loadMatchesDetails()
         url:'http://localhost:8080/matches',
         success: function(result){
             console.log(result);
-            var matches = JSON.parse(result);
-            for(var i =0; i < matches.length;i++)
+            for(var i =0; i < result.length;i++)
             {
-                addMatch(matches[i]);
+                addMatch(JSON.parse(result[i]));
             }
-            /*
-            match = {
-                id: "elid",
-                homeTeam: "0",
-                awayTeam: "0",
-                stadium: "1",
-                dateTime: "2018-03-29T11:34:00",
-                referee: "Mostafa Sherif",
-                linesman1: "Karim Ibrahim",
-                linesman2: "Youssef Sayed"
-            };
-            */
             return match;
         },
         error: function(xhr, status, error){
